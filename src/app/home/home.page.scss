@@ -1,0 +1,28 @@
+.cardProfilePicture {
+  // Shape
+  width: 70px;
+  // Positioning
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.cardUsername {
+  // Positioning
+  display: flex;
+  align-items: center;
+}
+
+.checkReminders {
+  // Positioning
+  display: flex;
+  margin-left: auto;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  // Design
+  background-color: #3ccf41;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
