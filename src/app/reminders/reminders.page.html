@@ -13,4 +13,37 @@
       <ion-title size="large">Reminders</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <!-- new reminder card -->
+  <ion-card class="newReminderCard">
+    <ion-button
+      id="reminder-modal"
+      expand="block"
+      class="newReminderBtn"
+      trigger="reminder-modal"
+      >New reminder +</ion-button
+    >
+    <!-- new reminder modal -->
+    <ion-modal trigger="reminder-modal">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-button (click)="cancel()">Cancel</ion-button>
+            </ion-buttons>
+            <ion-title>Reminder</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="confirm()" [strong]="true"
+                >Confirm</ion-button
+              >
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <!-- Form for new reminder WIP -->
+
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+  </ion-card>
 </ion-content>

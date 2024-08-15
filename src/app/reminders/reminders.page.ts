@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonModal } from '@ionic/angular';
 
 @Component({
   selector: 'app-reminders',
@@ -6,6 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reminders.page.scss'],
 })
 export class RemindersPage implements OnInit {
+
+  @ViewChild(IonModal) modal!: IonModal;
+
+  cancel() {
+    this.modal.dismiss(null, 'cancel');
+  }
+
+  confirm() {
+    this.modal.dismiss(null, 'confirm');
+  }
 
   constructor() { }
 
