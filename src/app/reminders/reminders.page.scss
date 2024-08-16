@@ -1,16 +1,36 @@
 .newReminderCard {
-    //shape
-    height: 90px;
-    // positioning
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  //shape
+  height: 90px;
+  // positioning
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .newReminderBtn {
-    // shape
-    width: 80%;
-    // positioning
-    margin-left: 15px;
-    margin-right: 15px;
+  // shape
+  width: 80%;
+  // positioning
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.reminderListCard {
+  // positioning
+  height: auto;
+}
+
+// New reminder Modal
+.dateTimeCard {
+  // shape
+  padding: 16px;
+  border-radius: 18px;
+}
+
+.dateTimeInput {
+  // shape
+  border-radius: 18px;
+  // positioning
+  margin: auto;
+  margin-top: 5px;
 }
