@@ -1,4 +1,15 @@
-.cardCalendar {
-    display: flex;
-    align-items: center;
+.dateTimeCard {
+  // shape
+  padding: 16px;
+  border-radius: 18px;
+  // positioning
+  display: flex;
+}
+
+.dateTimeInput {
+  // shape
+  border-radius: 18px;
+  // positioning
+  margin: auto;
+  margin-top: 5px;
 }
