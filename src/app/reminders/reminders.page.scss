@@ -45,8 +45,14 @@ ion-popover {
   --backdrop-opacity: 0;
   --box-shadow: none;
   --color: inherit;
-  --width: auto;
-  margin: 10px;
+}
+
+ion-popover#popover-bottom::part(content) {
+  top: unset !important;
+  left: 10 !important;
+  bottom: 50;
+  width: auto;
+  border-radius: 10;
 }
 
 .dateTimeLabel {
