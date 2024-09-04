@@ -8,6 +8,11 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
+        path: '',
+        redirectTo: '/tabs/home',
+        pathMatch: 'full'
+      },
+      {
         path: 'reminders',
         loadChildren: () => import('../reminders/reminders.module').then( m => m.RemindersPageModule)
       },
@@ -23,11 +28,6 @@ const routes: Routes = [
         path: 'calendar',
         loadChildren: () => import('../calendar/calendar.module').then( m => m.CalendarPageModule)
       },
-      {
-        path: '',
-        redirectTo: '/tabs/home',
-        pathMatch: 'full'
-      }
     ]
   },
   {
