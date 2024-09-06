@@ -28,6 +28,10 @@ const routes: Routes = [
         path: 'calendar',
         loadChildren: () => import('../calendar/calendar.module').then( m => m.CalendarPageModule)
       },
+      {
+        path: 'animations',
+        loadChildren: () => import('../animations/animations.module').then( m => m.AnimationsPageModule)
+      },
     ]
   },
   {

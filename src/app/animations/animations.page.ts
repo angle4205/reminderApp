@@ -3,9 +3,9 @@ import { Platform, NavController } from '@ionic/angular';
 import { trigger, state, style, transition, animate } from '@angular/animations'
 
 @Component({
-  selector: 'app-tasks',
-  templateUrl: './tasks.page.html',
-  styleUrls: ['./tasks.page.scss'],
+  selector: 'app-animations',
+  templateUrl: './animations.page.html',
+  styleUrls: ['./animations.page.scss'],
   // HOW TO MAKE ANIMATION
   animations: [
     //Trigger: String Name, Array [States and transition]
@@ -23,9 +23,10 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
       transition('visible => invisible', animate('1s'))
     ])
     //A
-  ]  
+  ]
 })
-export class TasksPage implements OnInit {
+export class AnimationsPage implements OnInit {
+
   // Put NavController on the constructor method parameter
   constructor(public navCtrl: NavController) { }
   //Animation variable (also, initial state of it)
@@ -37,5 +38,5 @@ export class TasksPage implements OnInit {
 
   ngOnInit() {
   }
-
+  
 }

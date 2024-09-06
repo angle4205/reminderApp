@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="oilblack">
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="oilblack">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Login</ion-card-title>
+      <ion-card-subtitle
+        >Metele css y edita como quieras, te dejo a ti como manejamos a los
+        usuarios en cuanto a credenciales</ion-card-subtitle
+      >
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Esto es un ejemplo</p>
+      <ion-list>
+        <ion-item>
+          <ion-input
+            label="Username"
+            labelPlacement="floating"
+            placeholder="Enter Username"
+            type="text"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            label="Email"
+            labelPlacement="floating"
+            placeholder="example@gmail.com"
+            type="email"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            label="Password"
+            labelPlacement="floating"
+            placeholder="Enter password"
+            type="password"
+          ></ion-input>
+        </ion-item>
+      </ion-list>
+      <p>
+        Tambien hay que hacer una pagina de register, usa: $ionic g page
+        register
+      </p>
+      <br />
+      <p>
+        En cuanto al routing la nueva pagina deberia aparecer en
+        'app-routing.module.ts' justo debajo de la ruta de login
+      </p>
+      <br />
+      <p>
+        El resto de rutas estan en 'tabs/tabs-routing.module.ts', pero estas
+        paginas de Login y Register no las necesitamos en tabs asi que
+        dejemoslas junto a la raíz
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

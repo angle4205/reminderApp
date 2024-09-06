@@ -3,77 +3,67 @@
 
 /* Set variables for all modes */
 :root {
-  /* Set the background of the entire app */
-  --ion-background-color: red;
-
   /* Set the font family of the entire app */
   --ion-font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
     "Roboto", sans-serif;
+  //ONE 'tangerine'
+  --ion-color-tangerine: #f08000;
+	--ion-color-tangerine-rgb: 240,128,0;
+	--ion-color-tangerine-contrast: #0C0C0C;
+	--ion-color-tangerine-contrast-rgb: 0,0,0;
+	--ion-color-tangerine-shade: #d37100;
+	--ion-color-tangerine-tint: #f28d1a;
+  .ion-color-tangerine {
+    --ion-color-base: var(--ion-color-tangerine);
+    --ion-color-base-rgb: var(--ion-color-tangerine-rgb);
+    --ion-color-contrast: var(--ion-color-tangerine-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-tangerine-contrast-rgb);
+    --ion-color-shade: var(--ion-color-tangerine-shade);
+    --ion-color-tint: var(--ion-color-tangerine-tint);
+  }
+  //TWO 'oilblack'
+  --ion-color-oilblack: #0C0C0C;
+	--ion-color-oilblack-rgb: 12,12,12;
+	--ion-color-oilblack-contrast: #FAF9F6;
+	--ion-color-oilblack-contrast-rgb: 255,255,255;
+	--ion-color-oilblack-shade: #0b0b0b;
+	--ion-color-oilblack-tint: #242424;
+  .ion-color-oilblack {
+    --ion-color-base: var(--ion-color-oilblack);
+    --ion-color-base-rgb: var(--ion-color-oilblack-rgb);
+    --ion-color-contrast: var(--ion-color-oilblack-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-oilblack-contrast-rgb);
+    --ion-color-shade: var(--ion-color-oilblack-shade);
+    --ion-color-tint: var(--ion-color-oilblack-tint);
+  }
+  //THREE 'offwhite'
+  --ion-color-offwhite: #FAF9F6;
+	--ion-color-offwhite-rgb: 250,249,246;
+	--ion-color-offwhite-contrast: #0C0C0C;
+	--ion-color-offwhite-contrast-rgb: 0,0,0;
+	--ion-color-offwhite-shade: #dcdbd8;
+	--ion-color-offwhite-tint: #fbfaf7;
+  .ion-color-offwhite {
+    --ion-color-base: var(--ion-color-offwhite);
+    --ion-color-base-rgb: var(--ion-color-offwhite-rgb);
+    --ion-color-contrast: var(--ion-color-offwhite-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-offwhite-contrast-rgb);
+    --ion-color-shade: var(--ion-color-offwhite-shade);
+    --ion-color-tint: var(--ion-color-offwhite-tint);
+  }
+  //FOUR 'newcolor'
+  // https://ionicframework.com/docs/theming/colors
+  // ^ PA CREAR COLORES NUEVOS
+
 }
 
 /* Set text color of the entire app for iOS only */
 :root.ios {
-  --ion-text-color: #000;
+  --ion-text-color: #0C0C0C;
 }
 
 /* Set text color of the entire app for Material Design only */
 :root.md {
-  --ion-text-color: #222;
+  --ion-text-color: #0C0C0C;
 }
 
-/* Global Components */
-
-ion-toolbar {
-  --background: #d8d8d8;
-}
-
-ion-title {
-  --color: #0e0e0e;
-  font-weight: bold;
-  font-size: 32px;
-}
-
-ion-content {
-  --background: #d8d8d8;
-}
-
-ion-tab-bar {
-  --background: #d8d8d8;
-}
-
-ion-tab-button {
-  --color: rgb(41, 41, 41);
-}
-
-ion-card {
-  --background: #b4b4b4;
-  --color: #0e0e0e;
-  border-radius: 15px;
-}
-
-ion-card-header {
-  --background: #b4b4b4;
-}
-
-ion-card-title {
-  --color: #0e0e0e;
-  font-weight: bold;
-  font-size: 27px;
-}
-
-ion-card-subtitle {
-  --color: #0e0e0e;
-}
-
-ion-card-content {
-  --color: black;
-  --background: black;
-}
-
-ion-list {
-  --background: black;
-}
-
-ion-item {
-  --background: black;
-}

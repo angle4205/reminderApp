@@ -35,3 +35,50 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 // @import "@ionic/angular/css/palettes/dark.system.css";
+
+// Custom ion components
+
+ion-tab-bar {
+  --background: #0c0c0c;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+ion-tab-button {
+  --color-selected: #f08000;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+ion-toolbar {
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+ion-button {
+  --border-radius: 15px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: 15px;
+}
+
+ion-card {
+  border-radius: 30px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+ion-title {
+  font-weight: bold;
+  font-size: 35px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+ion-card-title {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+ion-card-content {
+  font-size: 15px;
+}
+
+ion-item {
+  font-size: 15px;
+}

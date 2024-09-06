@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <ion-toolbar color="oilblack">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Animations</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="oilblack">
+
+  <ion-card color="offwhite">
+    <ion-card-header>
+      <ion-card-title>Fade animation</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-button (click)="toggleVisible()" color="oilblack" class="testButton">
+        Test Animation
+      </ion-button>
+      <div class="invisibleContent">
+        <p [@myvisibility]="visibleState">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati illo omnis hic, inventore laboriosam nulla veniam enim iste et blanditiis commodi molestiae dignissimos sit tenetur officia suscipit itaque? Laborum, explicabo.
+
+          ¿Por qué o para qué existimos?
+        </p>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtD8mvQ8us0LVV8rpkXCVOiuIl0LPeH-9pdQ&s" [@myvisibility]="visibleState">
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  
+</ion-content>
