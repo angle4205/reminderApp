@@ -4,13 +4,12 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: '',
     component: TabsPage,
     children: [
       {
-        path: '',
-        redirectTo: '/tabs/home',
-        pathMatch: 'full'
+        path: 'home',
+        loadChildren: () => import('../home/home.module').then(m => m.HomePageModule)
       },
       {
         path: 'reminders',
@@ -19,10 +18,6 @@ const routes: Routes = [
       {
         path: 'tasks',
         loadChildren: () => import('../tasks/tasks.module').then( m => m.TasksPageModule)
-      },
-      {
-        path: 'home',
-        loadChildren: () => import('../home/home.module').then( m => m.HomePageModule)
       },
       {
         path: 'calendar',
