@@ -1,0 +1,38 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url("/assets/images/mesh-291.png");
+  background-size: cover;
+  overflow: hidden;
+  min-height: 100vh
+}
+
+ion-card {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+ion-input {
+    margin-bottom: 15px;
+}
+
+.buttonCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttonCard ion-button {
+  width: 85%;
+  margin: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.buttonCard ion-icon {
+  margin-left: 8px;
+}

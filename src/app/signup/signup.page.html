@@ -1,0 +1,63 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content>
+  <div class="content">
+    <ion-card color="oilblack">
+      <ion-card-header>
+        <ion-title>Register</ion-title>
+        <ion-card-subtitle>Create an account</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-input
+          label="Username"
+          labelPlacement="stacked"
+          placeholder="Create username"
+          type="text"
+          color="tangerine"
+          fill="outline"
+          shape="round"
+          [(ngModel)]="username"
+        ></ion-input>
+
+        <ion-input
+          label="Email"
+          labelPlacement="stacked"
+          placeholder="example@gmail.com"
+          type="email"
+          fill="outline"
+          shape="round"
+          [(ngModel)]="email"
+        ></ion-input>
+
+        <ion-input
+          label="Password"
+          labelPlacement="stacked"
+          placeholder="Create a password"
+          type="password"
+          color="tangerine"
+          fill="outline"
+          shape="round"
+          [(ngModel)]="password"
+        ></ion-input>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card color="oilblack" class="buttonCard">
+      <ion-button (click)="register()" color="tangerine">
+        Register
+        <ion-icon aria-hidden="true" name="log-in" size="large"> </ion-icon>
+      </ion-button>
+      <ion-button (click)="redirectLogin()" color="primary">
+        Already have an account?
+        <ion-icon aria-hidden="true" name="log-in" size="large"> </ion-icon>
+      </ion-button>
+    </ion-card>
+  </div>
+</ion-content>
+
+<ion-footer>
+
+</ion-footer>
