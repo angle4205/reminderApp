@@ -1,45 +1,58 @@
 <ion-content>
   <div class="content">
-    <ion-card color="oilblack" class="loginCard">
-      <ion-card-header>
-        <ion-title>Login</ion-title>
-        <ion-card-subtitle>Log into an existing account</ion-card-subtitle>
-      </ion-card-header>
+    <div class="animation">
+      <ion-card color="oilblack" class="loginCard">
+        <ion-card-header>
+          <ion-title>Login</ion-title>
+          <ion-card-subtitle>Log into an existing account</ion-card-subtitle>
+        </ion-card-header>
 
-      <ion-card-content>
-        <ion-input
-          label="Username"
-          labelPlacement="floating"
-          placeholder="Enter account username"
-          type="text"
-          color="tangerine"
-          fill="outline"
+        <ion-card-content>
+          <ion-input
+            label="Username"
+            labelPlacement="floating"
+            placeholder="Enter account username"
+            type="text"
+            color="tangerine"
+            fill="outline"
+            shape="round"
+            [(ngModel)]="username"
+          ></ion-input>
+
+          <ion-input
+            label="Password"
+            labelPlacement="floating"
+            placeholder="Enter account password"
+            type="password"
+            color="tangerine"
+            fill="outline"
+            shape="round"
+            [(ngModel)]="password"
+          ></ion-input>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card color="oilblack" class="buttonCard">
+        <ion-button (click)="logIn()" color="primary">
+          Login
+          <ion-icon aria-hidden="true" name="log-in" size="large"> </ion-icon>
+        </ion-button>
+        <ion-button (click)="redirectSignup()" color="tangerine">
+          Create account
+          <ion-icon aria-hidden="true" name="person-add" size="large">
+          </ion-icon>
+        </ion-button>
+      </ion-card>
+      
+      <div class="bypass">
+        <ion-button
+          (click)="redirectHome()"
+          color="danger"
           shape="round"
-          [(ngModel)]="username"
-        ></ion-input>
-
-        <ion-input
-          label="Password"
-          labelPlacement="floating"
-          placeholder="Enter account password"
-          type="password"
-          color="tangerine"
-          fill="outline"
-          shape="round"
-          [(ngModel)]="password"
-        ></ion-input>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card color="oilblack" class="buttonCard">
-      <ion-button (click)="logIn()" color="primary">
-        Login
-        <ion-icon aria-hidden="true" name="log-in" size="large"> </ion-icon>
-      </ion-button>
-      <ion-button (click)="redirectSignup()" color="tangerine">
-        Create account
-        <ion-icon aria-hidden="true" name="person-add" size="large"> </ion-icon>
-      </ion-button>
-    </ion-card>
+        >
+          <ion-icon slot="icon-only" name="walk"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
   </div>
 </ion-content>

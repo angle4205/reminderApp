@@ -1,3 +1,12 @@
+.animation {
+  animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 .content {
   display: flex;
   flex-direction: column;
@@ -22,11 +31,14 @@ ion-input {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .buttonCard ion-button {
   width: 85%;
-  margin: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
