@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="oilblack">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -7,16 +7,11 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" color="offwhite">
-  <ion-header collapse="condense" color="offwhite">
-    <ion-toolbar color="offwhite">
-      <ion-title size="large">Calendar</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" color="oilblack">
 
-  <ion-card color="offwhite">
+  <ion-card color="offwhite" [@slideUp]="slideState">
     <ion-card-content class="dateTimeCard">
-      <ion-datetime class="dateTimeInput" color="offwhite"></ion-datetime>
+      <ion-datetime class="dateTimeInput" color="primary"></ion-datetime>
     </ion-card-content>
   </ion-card>
 

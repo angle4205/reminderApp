@@ -1,15 +1,38 @@
 import { Component, OnInit } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
+  
+  animations: [
+    
+    trigger('slideUp', [
+      
+      state('hidden', style({
+        transform: 'translateY(100%)',
+        opacity: 0
+      })),
+      state('visible', style({
+        transform: 'translateY(0)',
+        opacity: 1
+      })),
+      
+      transition('hidden => visible', animate('1s ease-out')),
+    ])
+  ]  //A
 })
 export class HomePage implements OnInit {
+
+  public slideState = 'hidden';
 
   constructor() { }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.slideState = 'visible';
+    }, 500);
   }
 
 }

@@ -9,7 +9,7 @@
 
 <ion-content [fullscreen]="true" color="oilblack">
 
-  <ion-card color="tangerine">
+  <ion-card color="tangerine" [@slideUp]="slideState">
     <!-- card for user )? -->
     <ion-card-header>
       <ion-card-title class="cardUsername">
@@ -27,7 +27,7 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card color="oilblack">
+  <ion-card color="oilblack" [@slideUp]="slideState">
     <!-- card for upcoming reminders )? -->
     <ion-card-header>
       <ion-card-title>Upcoming reminders</ion-card-title>
@@ -52,7 +52,7 @@
     >
   </ion-card>
 
-  <ion-card color="oilblack">
+  <ion-card color="oilblack" [@slideUp]="slideState">
     <ion-card-header>
       <ion-card-title>Holder</ion-card-title>
       <ion-card-subtitle>Lorem ipsum</ion-card-subtitle>

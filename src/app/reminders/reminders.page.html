@@ -16,7 +16,7 @@
   </ion-header>
 
   <!-- new reminder card -->
-  <ion-card class="newReminderCard" color="oilblack">
+  <ion-card class="newReminderCard" color="oilblack" [@slideUp]="slideState">
     <ion-button
       id="reminder-modal"
       color="offwhite"
@@ -93,7 +93,7 @@
   </ion-modal>
 
   <!-- Reminders list card -->
-  <ion-card class="reminderListCard" color="oilblack">
+  <ion-card class="reminderListCard" color="oilblack" [@slideUp]="slideState">
     <ion-card-header>
       <ion-card-title>Reminders</ion-card-title>
     </ion-card-header>
