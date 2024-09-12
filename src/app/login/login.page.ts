@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { UserService } from '../services/my-service.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginPage implements OnInit {
   username: string = ""
   password: string = ""
 
-  constructor(private router: Router, public alert: ToastController) { }
+  constructor(private router: Router, public alert: ToastController, private userService: UserService) { }
 
   redirectHome() {
     this.router.navigate(['/tabs/home']);
@@ -52,7 +53,8 @@ export class LoginPage implements OnInit {
       this.usernameErrorToast()
     }
     else {
-      console.log("User logged in succesfully")
+      console.log("User logged in successfully")
+      this.userService.setUserName(this.username);
       this.redirectHome()
     }
   }

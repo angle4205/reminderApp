@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { UserService } from '../services/my-service.service';
 
 @Component({
   selector: 'app-home',
@@ -25,11 +26,14 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 })
 export class HomePage implements OnInit {
 
+  username: string = 'Username';
+
   public slideState = 'hidden';
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.username = this.userService.getUserName();
     setTimeout(() => {
       this.slideState = 'visible';
     }, 500);

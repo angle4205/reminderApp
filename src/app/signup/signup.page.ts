@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
+import { UserService } from '../services/my-service.service';
 
 @Component({
   selector: 'app-signup',
@@ -13,7 +14,7 @@ export class SignupPage implements OnInit {
   password: string = ""
   email: string = ""
 
-  constructor(private router: Router, public alert: ToastController) { }
+  constructor(private router: Router, public alert: ToastController, private userService: UserService) { }
 
   redirectHome() {
     this.router.navigate(['/tabs/home']);
@@ -103,6 +104,7 @@ export class SignupPage implements OnInit {
       this.passwordContentsErrorToast();
     } else {
       console.log("User registered successfully");
+      this.userService.setUserName(this.username); // Almacenar el nombre de usuario
       this.redirectHome();
     }
   }
