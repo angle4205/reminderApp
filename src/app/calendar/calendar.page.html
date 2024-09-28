@@ -1,22 +1,15 @@
-<ion-header [translucent]="true">
+<ion-app>
   <ion-toolbar color="oilblack">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Calendar</ion-title>
+    <app-header [title]="'Calendar'"></app-header>
   </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true" color="oilblack">
+  <ion-content [fullscreen]="true" color="oilblack">
+    <ion-card color="offwhite" [@slideUp]="slideState">
+      <ion-card-content class="dateTimeCard">
+        <ion-datetime class="dateTimeInput" color="primary"></ion-datetime>
+      </ion-card-content>
+    </ion-card>
 
-  <ion-card color="offwhite" [@slideUp]="slideState">
-    <ion-card-content class="dateTimeCard">
-      <ion-datetime class="dateTimeInput" color="primary"></ion-datetime>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    
-  </ion-card>
-
-</ion-content>
+    <ion-card> </ion-card>
+  </ion-content>
+</ion-app>

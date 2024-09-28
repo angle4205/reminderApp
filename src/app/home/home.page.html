@@ -1,65 +1,66 @@
-<ion-header [translucent]="true">
+<ion-app>
   <ion-toolbar color="oilblack">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Home</ion-title>
+    <app-header [title]="'Home'"></app-header>
   </ion-toolbar>
-</ion-header>
+  <ion-content [fullscreen]="true" color="oilblack">
+    <ion-card color="tangerine" [@slideUp]="slideState">
+      <!-- card for user )? -->
+      <ion-card-header>
+        <ion-card-title class="cardUsername">
+          <img
+            src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
+            class="cardProfilePicture"
+          />
+          {{username}}</ion-card-title
+        >
+      </ion-card-header>
 
-<ion-content [fullscreen]="true" color="oilblack">
+      <ion-card-content>
+        Here's a small text description for the card content. Nothing more,
+        nothing less.
+      </ion-card-content>
+    </ion-card>
 
-  <ion-card color="tangerine" [@slideUp]="slideState">
-    <!-- card for user )? -->
-    <ion-card-header>
-      <ion-card-title class="cardUsername">
-        <img
-          src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
-          class="cardProfilePicture"
-        />
-        {{username}}</ion-card-title
+    <ion-card color="oilblack" [@slideUp]="slideState">
+      <!-- card for upcoming reminders )? -->
+      <ion-card-header>
+        <ion-card-title>Upcoming reminders</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <!-- list of reminders -->
+        <ion-list lines="none" style="padding: 0">
+          <ion-item color="oilblack">
+            <ion-label>Dog walk</ion-label>
+          </ion-item>
+          <ion-item color="oilblack">
+            <ion-label>Edging</ion-label>
+          </ion-item>
+          <ion-item color="oilblack">
+            <ion-label>Mewing session</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+      <ion-button
+        class="checkReminders"
+        color="tangerine"
+        [routerLink]="['/tabs/reminders']"
+        >Check reminders</ion-button
       >
-    </ion-card-header>
+    </ion-card>
 
-    <ion-card-content>
-      Here's a small text description for the card content. Nothing more,
-      nothing less.
-    </ion-card-content>
-  </ion-card>
+    <ion-card color="oilblack" [@slideUp]="slideState">
+      <ion-card-header>
+        <ion-card-title>Holder</ion-card-title>
+        <ion-card-subtitle>Lorem ipsum</ion-card-subtitle>
+      </ion-card-header>
 
-  <ion-card color="oilblack" [@slideUp]="slideState">
-    <!-- card for upcoming reminders )? -->
-    <ion-card-header>
-      <ion-card-title>Upcoming reminders</ion-card-title>
-    </ion-card-header>
-
-    <ion-card-content>
-      <!-- list of reminders -->
-      <ion-list lines="none" style="padding: 0;">
-        <ion-item color="oilblack">
-          <ion-label>Dog walk</ion-label>
-        </ion-item>
-        <ion-item color="oilblack">
-          <ion-label>Edging</ion-label>
-        </ion-item>
-        <ion-item color="oilblack">
-          <ion-label>Mewing session</ion-label>
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-    <ion-button class="checkReminders" color="tangerine" [routerLink]="['/tabs/reminders']"
-      >Check reminders</ion-button
-    >
-  </ion-card>
-
-  <ion-card color="oilblack" [@slideUp]="slideState">
-    <ion-card-header>
-      <ion-card-title>Holder</ion-card-title>
-      <ion-card-subtitle>Lorem ipsum</ion-card-subtitle>
-    </ion-card-header>
-
-    <ion-card-content>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum perspiciatis asperiores expedita quas, fuga maiores? Quaerat velit necessitatibus culpa molestias at esse omnis aperiam quos dolore! Laborum, qui nesciunt. Fuga?
-    </ion-card-content>
-  </ion-card>
-</ion-content>
+      <ion-card-content>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum
+        perspiciatis asperiores expedita quas, fuga maiores? Quaerat velit
+        necessitatibus culpa molestias at esse omnis aperiam quos dolore!
+        Laborum, qui nesciunt. Fuga?
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+</ion-app>
