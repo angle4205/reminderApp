@@ -3,8 +3,12 @@
 }
 
 @keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .content {
@@ -15,7 +19,7 @@
   background-image: url("/assets/images/mesh-291.png");
   background-size: cover;
   overflow: hidden;
-  min-height: 100vh
+  min-height: 100vh;
 }
 
 ion-card {
@@ -24,7 +28,11 @@ ion-card {
 }
 
 ion-input {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+p {
+  margin-left: 15px;
 }
 
 .buttonCard {

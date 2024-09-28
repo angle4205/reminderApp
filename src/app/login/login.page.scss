@@ -3,8 +3,12 @@
 }
 
 @keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .content {
@@ -23,6 +27,10 @@ ion-card {
 
 ion-input {
   margin-bottom: 15px;
+}
+
+p {
+  margin-left: 15px;
 }
 
 .buttonCard {
@@ -49,5 +57,5 @@ ion-input {
 
 .bypass {
   float: right;
-  margin-right: 15px; 
+  margin-right: 15px;
 }
