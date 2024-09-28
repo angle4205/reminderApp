@@ -1,14 +1,6 @@
 <ion-app>
-  <ion-toolbar color="oilblack">
-    <app-header [title]="'Reminders'"></app-header>
-  </ion-toolbar>
+  <app-header [title]="'Reminders'"></app-header>
   <ion-content [fullscreen]="true" color="oilblack">
-    <ion-header collapse="condense">
-      <ion-toolbar>
-        <ion-title size="large">Reminders</ion-title>
-      </ion-toolbar>
-    </ion-header>
-
     <!-- new reminder card -->
     <ion-card class="newReminderCard" color="oilblack" [@slideUp]="slideState">
       <ion-button
