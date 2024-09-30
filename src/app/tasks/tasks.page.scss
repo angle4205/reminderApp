@@ -1,9 +1,30 @@
-.testButton {
-  margin-left: 50%;
-  transform: translateX(-50%);
-  margin-bottom: 20px;
+.folder {
+  text-align: center;
+  margin-top: 20px;
 }
 
-.invisibleContent {
-    margin-left: 5px;
+.folder ion-icon {
+  color: var(--ion-color-offwhite);
+  font-size: 100px;
+  transition: font-size 0.3s ease;
+}
+
+.folder ion-label {
+  display: block;
+  font-size: 20px;
+}
+
+@media (min-width: 426px) {
+  .folder ion-icon {
+    font-size: 130px;
+  }
+  .folder ion-label {
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .folder ion-icon {
+    font-size: 150px;
+  }
 }

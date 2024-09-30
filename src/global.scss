@@ -35,17 +35,21 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 // @import "@ionic/angular/css/palettes/dark.system.css";
-
-// Custom ion components
-
+//ion custom components
 ion-tab-bar {
   --background: #0c0c0c;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  height: 60px;
+  width: 100%;
+}
+
+ion-tab-button ion-icon {
+  height: 35px;
+  width: 35px;
 }
 
 ion-tab-button {
   --color-selected: #f08000;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 ion-toolbar {
@@ -94,4 +98,100 @@ ion-item {
 
 ion-list {
   padding: 0;
+}
+
+@media (min-width: 426px) {
+  ion-tab-bar {
+    height: 60px;
+  }
+
+  ion-tab-button ion-icon {
+    height: 45px;
+    width: 45px;
+  }
+
+  ion-title {
+    font-size: 42px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  ion-card {
+    border-radius: 35px;
+    padding: 20px;
+    margin: 20px;
+  }
+
+  ion-card-title {
+    font-size: 32px;
+  }
+
+  ion-card-content {
+    font-size: 20px;
+  }
+
+  ion-item {
+    font-size: 18px;
+  }
+
+  ion-label {
+    font-size: 18px;
+  }
+
+  ion-button {
+    font-size: 18px;
+    border-radius: 18px;
+  }
+
+  ion-toolbar > ion-title {
+    margin-left: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  ion-tab-bar {
+    height: 70px;
+  }
+
+  ion-tab-button ion-icon {
+    height: 55px;
+    width: 55px;
+  }
+
+  ion-title {
+    font-size: 48px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+
+  ion-card {
+    border-radius: 40px;
+    padding: 25px;
+    margin: 25px;
+  }
+
+  ion-card-title {
+    font-size: 38px;
+  }
+
+  ion-card-content {
+    font-size: 24px;
+
+    ion-item {
+      font-size: 22px;
+    }
+
+    ion-label {
+      font-size: 22px;
+    }
+
+    ion-button {
+      font-size: 20px;
+      border-radius: 20px;
+    }
+
+    ion-toolbar > ion-title {
+      margin-left: 40px;
+    }
+  }
 }
