@@ -30,63 +30,6 @@ export class RemindersPage implements OnInit {
 
   slideState='hidden';
 
-  reminders: any[] = [];
-
-  reminder = {
-    name: '',
-    description: '',
-    date: new Date().toISOString().split('T')[0],
-    time: new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })
-  };
-
-  cancel() {
-    this.modal.dismiss(null, 'cancel');
-  }
-
-  confirm() {
-    this.modal.dismiss(this.reminder, 'confirm');
-  }
-
-  onWillDismiss(event: Event) {
-    const ev = event as CustomEvent<any>;
-    if (ev.detail.role === 'confirm') {
-      if (ev.detail.data.name && ev.detail.data.date && ev.detail.data.time) {
-        this.reminders.push({ ...ev.detail.data });
-      }
-      this.resetReminder();
-    }
-  }
-
-  submitReminder() {
-    if (this.reminder.name && this.reminder.date && this.reminder.time) {
-      this.reminders.push({
-        name: this.reminder.name,
-        description: this.reminder.description,
-        date: this.reminder.date,
-        time: this.reminder.time
-      });
-      this.resetReminder();
-      this.confirm();
-    } else {
-      console.log('Reminder input missing');
-    }
-  }
-
-  getFormattedDate(date: string): string {
-    const [year, month, day] = date.split('-');
-    return `${day}-${month}-${year}`;
-    // created this method to avoid an error in which the date was displayed incorrectly in the html
-  }
-
-  resetReminder() {
-    this.reminder = {
-      name: '',
-      description: '',
-      date: new Date().toISOString().split('T')[0],
-      time: new Date().toTimeString().split(' ')[0].substring(0, 5)
-    };
-  }
-
   constructor() { }
 
   ngOnInit() {
