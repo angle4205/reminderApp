@@ -17,3 +17,23 @@ ion-datetime {
 ion-datetime::part(wheel-item) {
   color: #FAF9F6;
 }
+
+#icon-sheet {
+  background-color: #0c0c0c;
+}
+
+#icons-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#icons {
+  box-sizing: border-box;
+  border: 2px solid transparent;
+}
+
+.selectedIcon {
+  border: 2px solid var(--ion-color-tangerine) !important;
+  border-radius: 50%;
+}
