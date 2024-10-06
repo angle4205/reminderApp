@@ -100,6 +100,11 @@ ion-list {
   padding: 0;
 }
 
+ion-datetime {
+  --background: transparent;
+  border-radius: 30px;
+}
+
 @media (min-width: 426px) {
   ion-tab-bar {
     height: 60px;
