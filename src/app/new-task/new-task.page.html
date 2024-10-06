@@ -1,0 +1,40 @@
+<app-header [title]="'New task'"></app-header>
+<ion-content color="oilblack">
+  <ion-card color="oilblack">
+    <ion-card-content>
+      <ion-input label="Title" labelPlacement="stacked"></ion-input>
+      <ion-textarea
+        label="Description"
+        labelPlacement="stacked"
+        rows="3"
+      ></ion-textarea>
+    </ion-card-content>
+  </ion-card>
+  <ion-accordion-group color="oilblack">
+    <ion-accordion color="oilblack">
+      <ion-item slot="header" color="oilblack"> Select Date </ion-item>
+      <div class="ion-padding" id="dateAccordion" slot="content">
+        <ion-item color="oilblack">
+          <ion-datetime> </ion-datetime>
+        </ion-item>
+      </div>
+    </ion-accordion>
+    <ion-accordion color="oilblack">
+      <ion-item slot="header" color="oilblack"> Select Ubication </ion-item>
+      <div class="ion-padding" id="dateAccordion" slot="content">
+        <ion-item color="oilblack">
+          <ion-label> *Place map* </ion-label>
+        </ion-item>
+        <ion-item color="oilblack">
+          <ion-select placeholder="Select Range">
+            <div slot="label">Range (meters)</div>
+            <ion-select-option value="15">15 m</ion-select-option>
+            <ion-select-option value="30">30 m</ion-select-option>
+            <ion-select-option value="50">50 m</ion-select-option>
+            <ion-select-option value="100">100 m</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+</ion-content>
