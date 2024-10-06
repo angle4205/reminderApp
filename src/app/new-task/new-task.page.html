@@ -1,26 +1,51 @@
 <app-header [title]="'New task'"></app-header>
 <ion-content color="oilblack">
   <ion-card color="oilblack">
+    <ion-card-header>
+      <ion-card-title> Create new task</ion-card-title>
+    </ion-card-header>
     <ion-card-content>
-      <ion-input label="Title" labelPlacement="stacked"></ion-input>
+      <ion-input label="Title" labelPlacement="floating"></ion-input>
       <ion-textarea
         label="Description"
-        labelPlacement="stacked"
+        labelPlacement="floating"
         rows="3"
       ></ion-textarea>
     </ion-card-content>
   </ion-card>
   <ion-accordion-group color="oilblack">
     <ion-accordion color="oilblack">
-      <ion-item slot="header" color="oilblack"> Select Date </ion-item>
+      <ion-item slot="header" color="oilblack"> Select date & time </ion-item>
       <div class="ion-padding" id="dateAccordion" slot="content">
+        <ion-select
+          [(ngModel)]="selectedDays"
+          (ionChange)="repeatSelect()"
+          multiple="true"
+          placeholder="Don't repeat weekly"
+        >
+          <div slot="label">Repeat Weekly</div>
+          <ion-select-option value="monday">Monday</ion-select-option>
+          <ion-select-option value="tuesday">Tuesday</ion-select-option>
+          <ion-select-option value="wednesday">Wednesday</ion-select-option>
+          <ion-select-option value="thursday">Thursday</ion-select-option>
+          <ion-select-option value="friday">Friday</ion-select-option>
+          <ion-select-option value="saturday">Saturday</ion-select-option>
+          <ion-select-option value="sunday">Sunday</ion-select-option>
+          <ion-select-option value="location">Location based</ion-select-option>
+        </ion-select>
         <ion-item color="oilblack">
-          <ion-datetime> </ion-datetime>
+          <ion-datetime *ngIf="!repeatWeekly && !locationBased"></ion-datetime>
+          <ion-datetime
+            presentation="time"
+            class="timePicker"
+            color="offwhite"
+            *ngIf="repeatWeekly && !locationBased"
+          ></ion-datetime>
         </ion-item>
       </div>
     </ion-accordion>
     <ion-accordion color="oilblack">
-      <ion-item slot="header" color="oilblack"> Select Ubication </ion-item>
+      <ion-item slot="header" color="oilblack"> Select ubication </ion-item>
       <div class="ion-padding" id="dateAccordion" slot="content">
         <ion-item color="oilblack">
           <ion-label> *Place map* </ion-label>
@@ -37,4 +62,29 @@
       </div>
     </ion-accordion>
   </ion-accordion-group>
+
+  <ion-card color="oilblack">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button
+            color="danger"
+            class="doneButtons"
+            [routerLink]="['/tabs/home']"
+          >
+            Cancel
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button
+            color="offwhite"
+            class="doneButtons"
+            [routerLink]="['/tabs/home']"
+          >
+            Done
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
 </ion-content>

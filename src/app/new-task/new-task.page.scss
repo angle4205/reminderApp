@@ -1,3 +1,19 @@
 #dateAccordion {
-    background-color: #0C0C0C;
+  background-color: #0c0c0c;
+}
+
+.doneButtons {
+  width: 100%;
+}
+
+ion-datetime {
+  --background: #0c0c0c;
+  --wheel-highlight-background: rgba(255, 180, 40, 0.400);
+  --wheel-highlight-border-radius: 48px;
+  --wheel-fade-background-rgb: #0c0c0c;
+  width: 100%;
+}
+
+ion-datetime::part(wheel-item) {
+  color: #FAF9F6;
 }
