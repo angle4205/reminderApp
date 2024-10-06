@@ -4,17 +4,17 @@
     <!-- new reminder card -->
     <ion-card class="newReminderCard" color="oilblack" [@slideUp]="slideState">
       <ion-button
-        id="reminder-modal"
         color="offwhite"
         expand="block"
         class="newReminderBtn"
-        (click)="modal.present()"
+        [routerLink]="['/new-task']"
       >
         New reminder +
       </ion-button>
     </ion-card>
 
     <!-- new reminder modal -->
+    <!--
     <ion-modal #modal (willDismiss)="onWillDismiss($event)">
       <ng-template>
         <ion-header class="modalHeader">
@@ -80,7 +80,7 @@
           </ion-item>
         </ion-content>
       </ng-template>
-    </ion-modal>
+    </ion-modal> -->
 
     <!-- Reminders list card -->
     <ion-card class="reminderListCard" color="oilblack" [@slideUp]="slideState">
@@ -100,45 +100,6 @@
               recusandae beatae sunt, quisquam fugiat assumenda, repudiandae
               molestias quae neque aperiam id. Ipsum.</ion-label
             >
-          </ion-item>
-        </ion-accordion>
-        <ion-accordion>
-          <ion-item slot="header" color="tangerine">
-            <ion-label>Name</ion-label>
-            <ion-note slot="end"> R date - R time </ion-note>
-          </ion-item>
-          <ion-item slot="content" color="tangerine">
-            <ion-label
-              >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum,
-              consequatur possimus quidem quos corporis est perspiciatis nulla
-              recusandae beatae sunt, quisquam fugiat assumenda, repudiandae
-              molestias quae neque aperiam id. Ipsum.</ion-label
-            >
-          </ion-item>
-        </ion-accordion>
-        <ion-accordion>
-          <ion-item slot="header" color="oilblack">
-            <ion-label>Name</ion-label>
-            <ion-note slot="end"> R date - R time </ion-note>
-          </ion-item>
-          <ion-item slot="content" color="oilblack">
-            <ion-label
-              >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum,
-              consequatur possimus quidem quos corporis est perspiciatis nulla
-              recusandae beatae sunt, quisquam fugiat assumenda, repudiandae
-              molestias quae neque aperiam id. Ipsum.</ion-label
-            >
-          </ion-item>
-        </ion-accordion>
-        <ion-accordion *ngFor="let reminder of reminders">
-          <ion-item slot="header">
-            <ion-label>{{ reminder.name }}</ion-label>
-            <ion-note slot="end">
-              {{ getFormattedDate(reminder.date) }} - {{ reminder.time }}
-            </ion-note>
-          </ion-item>
-          <ion-item slot="content">
-            <ion-label>{{ reminder.description }}</ion-label>
           </ion-item>
         </ion-accordion>
       </ion-accordion-group>
