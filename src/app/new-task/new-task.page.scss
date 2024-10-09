@@ -11,7 +11,8 @@ ion-datetime {
   --wheel-highlight-background: rgba(255, 180, 40, 0.400);
   --wheel-highlight-border-radius: 48px;
   --wheel-fade-background-rgb: #0c0c0c;
-  width: 100%;
+  width: auto;
+  margin: 0 auto;
 }
 
 ion-datetime::part(wheel-item) {
@@ -37,3 +38,17 @@ ion-datetime::part(wheel-item) {
   border: 2px solid var(--ion-color-tangerine) !important;
   border-radius: 50%;
 }
+
+.repeatTimePicker, .specificDatetimePicker {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+ion-item.selectDateTime {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+

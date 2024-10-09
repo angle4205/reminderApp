@@ -12,7 +12,35 @@ export class NewTaskPage implements OnInit {
   locationBased: boolean = false;
   selectedColor: string = '';
   selectedIcon: string = '';
-  icons: string[] = ['checkmark-circle', 'alarm', 'star', 'heart', 'rocket'];
+  icons: string[] = [
+    'checkmark-circle',
+    'alarm',
+    'star',
+    'heart',
+    'rocket',
+    'home',
+    'settings',
+    'person',
+    'trash',
+    'folder',
+    'search',
+    'checkmark',
+    'happy',
+    'sad',
+    'camera',
+    'chatbubbles',
+    'information-circle',
+    'arrow-back',
+    'arrow-forward',
+    'fitness',
+    'barbell',
+    'bicycle',
+    'walk',
+    'body',
+    'water',
+    'medkit',
+    'heart',
+  ];
 
   constructor() { }
 
