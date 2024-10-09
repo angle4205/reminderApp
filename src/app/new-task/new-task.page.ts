@@ -40,6 +40,9 @@ export class NewTaskPage implements OnInit {
     'water',
     'medkit',
     'heart',
+    'medal',
+    'flame',
+    'football'
   ];
 
   constructor() { }
