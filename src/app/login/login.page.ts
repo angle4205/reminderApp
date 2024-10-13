@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { UserService } from '../services/my-service.service';
+import { Storage } from '@ionic/storage-angular';
+import { FirebaseLoginService } from '../services/firebase-login.service';
 
 @Component({
   selector: 'app-login',
@@ -10,17 +12,23 @@ import { UserService } from '../services/my-service.service';
 })
 export class LoginPage implements OnInit {
 
-  username: string = ""
+  email: string = ""
   password: string = ""
 
-  constructor(private router: Router, public alert: ToastController, private userService: UserService) { }
-
-  redirectHome() {
-    this.router.navigate(['/tabs/home']);
-  }
+  constructor(private router: Router, public alert: ToastController, private userService: UserService, private storage: Storage, private firebaseLoginService: FirebaseLoginService
+  ) { }
 
   redirectSignup() {
     this.router.navigate(['/signup']);
+  }
+
+  redirectHome() {
+    this.router.navigate(['tabs/home']);
+  }
+
+  validateEmail(email: string): boolean {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
   }
 
   async missingInputsToast() {
@@ -32,30 +40,45 @@ export class LoginPage implements OnInit {
     await alert.present();
   }
 
-  async usernameErrorToast() {
+  async invalidCredentialsToast() {
     const alert = await this.alert.create({
-      message: 'Username cannot contain more than 25 characters',
+      message: 'Invalid Credentials',
+      duration: 3000,
+      icon: 'sad'
+    });
+    await alert.present();
+  }
+
+  async emailErrorToast() {
+    const alert = await this.alert.create({
+      message: 'Please enter a valid email',
       duration: 4000,
       icon: 'sad'
     });
     await alert.present();
   }
 
-  logIn() {
-    if (this.username.trim() === "") {
-      console.log("Missing username");
-      this.missingInputsToast();
+  async logIn() {
+    if (this.email.trim() === "") {
+      console.log("Missing email");
+      await this.missingInputsToast();
     } else if (this.password.trim() === "") {
       console.log("Missing password");
-      this.missingInputsToast();
-    } else if (this.username.length > 25) {
-      console.log("Username too long")
-      this.usernameErrorToast()
+      await this.missingInputsToast();
+    } else if (!this.validateEmail(this.email)) {
+      console.log("Invalid email")
+      await this.emailErrorToast()
     }
     else {
-      console.log("User logged in successfully")
-      this.userService.setUserName(this.username);
-      this.redirectHome()
+      this.firebaseLoginService.login(this.email, this.password)
+        .then(userCredential => {
+          console.log("User logged in successfully", userCredential);
+          this.redirectHome();
+        })
+        .catch(error => {
+          console.error("Error during login", error);
+          this.invalidCredentialsToast();
+        });
     }
   }
 
