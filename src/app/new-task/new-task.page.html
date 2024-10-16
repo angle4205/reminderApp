@@ -60,7 +60,7 @@
           <ion-label> *Place map* </ion-label>
         </ion-item>
         <ion-item color="oilblack">
-          <ion-select placeholder="Select Range">
+          <ion-select [(ngModel)]="locationRange" placeholder="Select Range">
             <div slot="label">Range (meters)</div>
             <ion-select-option value="15">15 m</ion-select-option>
             <ion-select-option value="30">30 m</ion-select-option>
