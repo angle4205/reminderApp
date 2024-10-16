@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../services/api.service';
+import { Storage } from '@ionic/storage-angular'
 
 @Component({
   selector: 'app-new-task',
@@ -7,9 +7,14 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['./new-task.page.scss'],
 })
 export class NewTaskPage implements OnInit {
+  taskTitle: string = '';
+  taskDescription: string = '';
+  taskDate: string = '';
+  weeklyTime: string = '';
   selectedDays: string[] = [];
   repeatWeekly: boolean = false;
   locationBased: boolean = false;
+  locationRange: number = 0;
   selectedColor: string = '';
   selectedIcon: string = '';
   icons: string[] = [
@@ -45,9 +50,10 @@ export class NewTaskPage implements OnInit {
     'football'
   ];
 
-  constructor() { }
+  constructor(private storage: Storage) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.storage.create();
   }
 
   repeatSelect() {
@@ -57,6 +63,38 @@ export class NewTaskPage implements OnInit {
 
   selectIcon(icon: string) {
     this.selectedIcon = icon;
+  }
+
+  extractTime(dateTime: string): string {
+    const date = new Date(dateTime);
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    return `${hours}:${minutes}`;
+  }
+
+  async saveToStorage(newTask: any) {
+    let storedTasks = await this.storage.get('tasks');
+    if (storedTasks === null) {
+      storedTasks = [];
+    }
+    storedTasks.push(newTask);
+    await this.storage.set('tasks', storedTasks);
+  }
+
+  async saveTask() {
+    const task = {
+      taskTitle: this.taskTitle,
+      taskDescription: this.taskDescription,
+      specificDate: this.taskDate,
+      weeklyTime: this.extractTime(this.weeklyTime),
+      weeklyDays: this.selectedDays,
+      repeatWeekly: this.repeatWeekly,
+      locationBased: this.locationBased,
+      locationRange: this.locationRange,
+      taskColor: this.selectedColor,
+      taskIcon: this.selectedIcon
+    };
+    await this.saveToStorage(task);
   }
 
 }

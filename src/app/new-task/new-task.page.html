@@ -5,8 +5,13 @@
       <ion-card-title> Create new task</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-input label="Title" labelPlacement="floating"></ion-input>
+      <ion-input
+        [(ngModel)]="taskTitle"
+        label="Title"
+        labelPlacement="floating"
+      ></ion-input>
       <ion-textarea
+        [(ngModel)]="taskDescription"
         label="Description"
         labelPlacement="floating"
         rows="3"
@@ -34,8 +39,12 @@
           <ion-select-option value="location">Location based</ion-select-option>
         </ion-select>
         <ion-item color="oilblack">
-          <ion-datetime *ngIf="!repeatWeekly && !locationBased"></ion-datetime>
           <ion-datetime
+            [(ngModel)]="taskDate"
+            *ngIf="!repeatWeekly && !locationBased"
+          ></ion-datetime>
+          <ion-datetime
+            [(ngModel)]="weeklyTime"
             presentation="time"
             class="timePicker"
             color="offwhite"
@@ -66,8 +75,18 @@
       <div class="ion-padding" id="icon-sheet" slot="content">
         <ion-grid>
           <ion-row>
-            <ion-col size="2" id="icons-col" *ngFor="let icon of icons" (click)="selectIcon(icon)">
-              <ion-icon [name]="icon" id="icons" [class.selectedIcon]="selectedIcon === icon" size="large"></ion-icon>
+            <ion-col
+              size="2"
+              id="icons-col"
+              *ngFor="let icon of icons"
+              (click)="selectIcon(icon)"
+            >
+              <ion-icon
+                [name]="icon"
+                id="icons"
+                [class.selectedIcon]="selectedIcon === icon"
+                size="large"
+              ></ion-icon>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -92,6 +111,7 @@
             color="offwhite"
             class="doneButtons"
             [routerLink]="['/tabs/home']"
+            (click)="saveTask()"
           >
             Done
           </ion-button>
