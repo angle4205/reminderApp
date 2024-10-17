@@ -1,7 +1,7 @@
 <ion-app>
   <app-header [title]="'Home'"></app-header>
   <ion-content [fullscreen]="true" color="oilblack">
-    <app-user-card [username]="'Username'"></app-user-card>
+    <app-user-card [username]="'Username'" [@slideUp]="slideState"></app-user-card>
     <ion-card color="oilblack" [@slideUp]="slideState">
       <!-- card for upcoming reminders )? -->
       <ion-card-header>
