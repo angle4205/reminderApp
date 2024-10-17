@@ -1,24 +1,7 @@
 <ion-app>
   <app-header [title]="'Home'"></app-header>
   <ion-content [fullscreen]="true" color="oilblack">
-    <ion-card color="tangerine" [@slideUp]="slideState">
-      <!-- card for user )? -->
-      <ion-card-header>
-        <ion-card-title class="cardUsername">
-          <img
-            src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
-            class="cardProfilePicture"
-          />
-          {{username}}</ion-card-title
-        >
-      </ion-card-header>
-
-      <ion-card-content>
-        Here's a small text description for the card content. Nothing more,
-        nothing less.
-      </ion-card-content>
-    </ion-card>
-
+    <app-user-card [username]="'Username'"></app-user-card>
     <ion-card color="oilblack" [@slideUp]="slideState">
       <!-- card for upcoming reminders )? -->
       <ion-card-header>
