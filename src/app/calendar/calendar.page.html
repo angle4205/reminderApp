@@ -2,36 +2,9 @@
   <app-header [title]="'Task'"></app-header>
   <ion-content [fullscreen]="true" color="oilblack">
     
-    <div class="month-year-selector">
-      <ion-item>
-        <ion-select [(ngModel)]="selectedMonth" (ionChange)="onMonthChange()">
-          <ion-select-option *ngFor="let month of months" [value]="month.value">{{ month.name }}</ion-select-option>
-        </ion-select>
-        <span>{{ selectedYear }}</span> <!-- Muestra el año actual sin selector -->
-      </ion-item>
-    </div>
-    <div class="week-container">
-      <button (click)="prevWeek()">
-        <ion-icon name="chevron-back-outline"></ion-icon>
-      </button>
-    
-      <div class="days-carousel">
-        <div 
-          *ngFor="let day of currentWeek; let i = index" 
-          [ngClass]="{
-            'selected': selectedDay === day.date,
-            'today': isToday(day.date)
-          }"
-          (click)="selectDay(day.date)">
-          {{ day.label }} <br>
-          {{ day.date.getDate() }}
-        </div>
+      <div class="datetime-container">
+        <ion-datetime presentation="date"></ion-datetime>
       </div>
-    
-      <button (click)="nextWeek()">
-        <ion-icon name="chevron-forward-outline"></ion-icon>
-      </button>
-    </div>
 
     <p>Reminders</p>
 

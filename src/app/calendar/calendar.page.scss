@@ -21,57 +21,6 @@ ion-fab-button {
   --color: black;
 }
 //si
-.week-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.days-carousel {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-}
-
-.selected {
-  color: red;
-  font-weight: bold;
-}
-
-.today {
-  color: green;
-}
-
-.month-year-selector {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-}
-
-.week-carousel {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-
-.week-days {
-  display: flex;
-  justify-content: space-between;
-}
-
-button {
-  background-color: transparent;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-button:hover {
-  color: #007BFF;
-}
-
-//si
 ion-card {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
@@ -84,4 +33,10 @@ ion-card-header {
 ion-card-content {
   background-color: white;
   padding: 10px;
+}
+
+.datetime-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
