@@ -1,15 +1,23 @@
 <ion-app>
   <app-header [title]="'Home'"></app-header>
   <ion-content [fullscreen]="true" color="oilblack">
-    <app-user-card [username]="'Username'" [@slideUp]="slideState"></app-user-card>
+    <!-- User card -->
+    <app-user-card
+      [username]="'Username'"
+      [@slideUp]="slideState"
+    ></app-user-card>
+    <!-- Quotes card -->
+    <app-quotes-card
+      [quote]="quote"
+      [author]="author"
+      [errorMessage]="errorMessage"
+    ></app-quotes-card>
+    <!-- Example card for upcoming reminders -->
     <ion-card color="oilblack" [@slideUp]="slideState">
-      <!-- card for upcoming reminders )? -->
       <ion-card-header>
         <ion-card-title>Upcoming reminders</ion-card-title>
       </ion-card-header>
-
       <ion-card-content>
-        <!-- list of reminders -->
         <ion-list lines="none" style="padding: 0">
           <ion-item color="oilblack">
             <ion-label>Dog walk</ion-label>
@@ -29,7 +37,7 @@
         >Check reminders</ion-button
       >
     </ion-card>
-
+    <!-- Example card -->
     <ion-card color="oilblack" [@slideUp]="slideState">
       <ion-card-header>
         <ion-card-title>Holder</ion-card-title>
