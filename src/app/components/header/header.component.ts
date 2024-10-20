@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,12 +6,12 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent  implements OnInit {
+export class HeaderComponent implements OnInit {
 
   constructor(private router: Router) { }
-  @Input() title:String=""
+  ngOnInit() { }
 
-  ngOnInit() {}
+  @Input() title: String = ""
 
   redirectConfiguration() {
     this.router.navigate(['configuration'])
