@@ -26,6 +26,7 @@ export class FirebaseLoginService {
     try {
       await this.afAuth.signOut();
       await this.router.navigate(['/login']);
+      console.log("User logged out successfully")
     } catch (error) {
       console.error("Error during log-out", error);
       throw error;

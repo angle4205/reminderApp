@@ -1,13 +1,25 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>configuration</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">configuration</ion-title>
+<ion-app>
+  <ion-header [translucent]="true">
+    <ion-toolbar color="oilblack">
+      <ion-title class="titles">Configuration</ion-title>
+      <ion-buttons slot="end">
+        <ion-button [routerLink]="['/tabs/home']">
+          <ion-icon slot="icon-only" name="home-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
     </ion-toolbar>
   </ion-header>
-</ion-content>
+  
+  <ion-content color="oilblack">
+    <ion-card color="oilblack">
+      <ion-card-header>
+        <ion-card-title>
+          Options
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-button (click)="logOut()" color="danger">Log out</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+</ion-app>

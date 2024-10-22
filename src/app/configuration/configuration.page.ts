@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseLoginService } from '../services/firebase-login.service';
 
 @Component({
   selector: 'app-configuration',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfigurationPage implements OnInit {
 
-  constructor() { }
+  constructor(private firebaseLoginService: FirebaseLoginService ) { }
 
   ngOnInit() {
+  }
+
+  logOut() {
+    this.firebaseLoginService.logout()
   }
 
 }
