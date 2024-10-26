@@ -11,7 +11,7 @@ export const environment = {
     storageBucket: "focusflow-6f574.appspot.com",
     messagingSenderId: "553691589264",
     appId: "1:553691589264:web:35061186de536c4098c615"
-  }
+  },
 };
 
 /*
