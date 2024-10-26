@@ -1,45 +1,47 @@
 <ion-app>
   <app-header [title]="'Task'"></app-header>
   <ion-content [fullscreen]="true" color="oilblack">
-    
+    <div class="slideUp" [@slideUp]="slideState">
       <div class="datetime-container">
         <ion-datetime presentation="date"></ion-datetime>
       </div>
 
-    <p>Reminders</p>
+      <p>Reminders</p>
 
-    <ion-card [@slideUp]="slideState" (click)="toggleAccordion()">
-      <ion-card-header>
-        <ion-item lines="none">
-          <ion-icon name="bed-outline" size="large" slot="start"></ion-icon>
-          <ion-card-content>
-            Hacer la cama
-          </ion-card-content>
-          <ion-card-content>
-            06:20am
-          </ion-card-content>
-        </ion-item>
-      </ion-card-header>
-    
-      <ion-card-content *ngIf="isOpen">
-        <p>Esta es la información adicional que se despliega cuando se presiona la card.</p>
-      </ion-card-content>
+      <ion-card [@slideUp]="slideState" (click)="toggleAccordion()">
+        <ion-card-header>
+          <ion-item lines="none">
+            <ion-icon name="bed-outline" size="large" slot="start"></ion-icon>
+            <ion-card-content> Hacer la cama </ion-card-content>
+            <ion-card-content> 06:20am </ion-card-content>
+          </ion-item>
+        </ion-card-header>
 
-    </ion-card>
+        <ion-card-content *ngIf="isOpen">
+          <p>
+            Esta es la información adicional que se despliega cuando se presiona
+            la card.
+          </p>
+        </ion-card-content>
+      </ion-card>
 
-    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-      <ion-fab-button>
-        <ion-icon name="add" size="large"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-list side="top"> 
+      <ion-fab slot="fixed" vertical="bottom" horizontal="end">
         <ion-fab-button>
-          <ion-icon name="map-outline" size="large"></ion-icon>
+          <ion-icon name="add" size="large"></ion-icon>
         </ion-fab-button>
-        <ion-fab-button>
-          <ion-icon name="alarm-outline" size="large" [routerLink]="['/new-task']"></ion-icon>
-        </ion-fab-button>
-      </ion-fab-list>
-    </ion-fab>
-
+        <ion-fab-list side="top">
+          <ion-fab-button>
+            <ion-icon name="map-outline" size="large"></ion-icon>
+          </ion-fab-button>
+          <ion-fab-button>
+            <ion-icon
+              name="alarm-outline"
+              size="large"
+              [routerLink]="['/new-task']"
+            ></ion-icon>
+          </ion-fab-button>
+        </ion-fab-list>
+      </ion-fab>
+    </div>
   </ion-content>
 </ion-app>

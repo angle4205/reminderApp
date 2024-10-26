@@ -35,7 +35,7 @@ export class HomePage implements OnInit {
   constructor(private userService: UserService, private apiService: ApiService) { }
 
   ngOnInit() {
-    // My Service
+    // My Service / User service
     this.username = this.userService.getUserName();
     // API Service
     this.apiService.getQuoteOfTheDay().subscribe(

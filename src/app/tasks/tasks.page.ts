@@ -6,36 +6,33 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   selector: 'app-tasks',
   templateUrl: './tasks.page.html',
   styleUrls: ['./tasks.page.scss'],
-  // HOW TO MAKE ANIMATION
   animations: [
-    //Trigger: String Name, Array [States and transition]
-    //in this case @myvisibility is the tag for this animation
-    trigger('myvisibility', [
-      // Creation of states (visible, invisible)
-      state('invisible', style({
+
+    trigger('slideUp', [
+
+      state('hidden', style({
+        transform: 'translateY(100%)',
         opacity: 0
       })),
       state('visible', style({
+        transform: 'translateY(0)',
         opacity: 1
       })),
-      // Transition beetween states
-      transition('invisible => visible', animate('60s')),
-      transition('visible => invisible', animate('1s'))
+
+      transition('hidden => visible', animate('1s ease-out')),
     ])
-    //A
-  ]  
+  ]
 })
 export class TasksPage implements OnInit {
-  // Put NavController on the constructor method parameter
+
   constructor(public navCtrl: NavController) { }
-  //Animation variable (also, initial state of it)
-  visibleState = 'invisible';
-  //Animation method, switches the 
-  toggleVisible() {
-    this.visibleState = (this.visibleState == 'invisible') ? 'visible' : 'invisible';
-  }
+
+  public slideState = 'hidden';
 
   ngOnInit() {
+    setTimeout(() => {
+      this.slideState = 'visible';
+    }, 500);
   }
 
 }
