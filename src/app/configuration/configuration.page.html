@@ -9,16 +9,19 @@
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
-  
+
   <ion-content color="oilblack">
     <ion-card color="oilblack">
       <ion-card-header>
-        <ion-card-title>
-          Options
-        </ion-card-title>
+        <ion-card-title> Options </ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <ion-button (click)="logOut()" color="danger">Log out</ion-button>
+        <ion-buttons class="configOptions">
+          <ion-button (click)="logOut()" color="danger">Log out</ion-button>
+          <ion-button (click)="resetPassword()" color="primary"
+            >Send password reset Email</ion-button
+          >
+        </ion-buttons>
       </ion-card-content>
     </ion-card>
   </ion-content>

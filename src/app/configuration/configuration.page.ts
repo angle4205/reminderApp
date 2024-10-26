@@ -7,14 +7,23 @@ import { FirebaseLoginService } from '../services/firebase-login.service';
   styleUrls: ['./configuration.page.scss'],
 })
 export class ConfigurationPage implements OnInit {
+  email: string | null = null;
+  constructor(private firebaseLoginService: FirebaseLoginService) { }
 
-  constructor(private firebaseLoginService: FirebaseLoginService ) { }
-
-  ngOnInit() {
+  async ngOnInit() {
+    this.email = await this.firebaseLoginService.getCurrentUserEmail();
   }
 
   logOut() {
-    this.firebaseLoginService.logout()
+    this.firebaseLoginService.logOut()
+  }
+
+  resetPassword() {
+    if (this.email) {
+      this.firebaseLoginService.resetPassword(this.email);
+    } else {
+      console.error("Email not available for password reset");
+    }
   }
 
 }
