@@ -70,7 +70,7 @@ export class LoginPage implements OnInit {
       await this.emailErrorToast()
     }
     else {
-      this.firebaseLoginService.login(this.email, this.password)
+      this.firebaseLoginService.logIn(this.email, this.password)
         .then(userCredential => {
           console.log("User logged in successfully", userCredential);
           this.redirectHome();

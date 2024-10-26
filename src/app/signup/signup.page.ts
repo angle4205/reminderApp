@@ -114,7 +114,7 @@ export class SignupPage implements OnInit {
     } else {
       console.log("User registered successfully");
       this.userService.setUserName(this.username); // Almacenar el nombre de usuario
-      this.firebaseLoginService.create_user(this.email, this.password)
+      this.firebaseLoginService.createUser(this.email, this.password)
         .then(userCredential => {
           console.log("User signed up successfully", userCredential);
         })

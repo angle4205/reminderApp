@@ -13,7 +13,7 @@ export class FirebaseLoginService {
 
   constructor(private afAuth: AngularFireAuth, private router: Router, private firestore: AngularFirestore) { }
 
-  async login(email: string, password: string) {
+  async logIn(email: string, password: string) {
     try {
       const userCredential = await this.afAuth.signInWithEmailAndPassword(email, password);
       return userCredential;
@@ -22,7 +22,7 @@ export class FirebaseLoginService {
     }
   }
 
-  async logout() {
+  async logOut() {
     try {
       await this.afAuth.signOut();
       await this.router.navigate(['/login']);
@@ -33,7 +33,7 @@ export class FirebaseLoginService {
     }
   }
 
-  async create_user(email: string, password: string) {
+  async createUser(email: string, password: string) {
     try {
       const userCredential = await this.afAuth.createUserWithEmailAndPassword(email, password);
       const uid = userCredential.user?.uid;
@@ -52,4 +52,14 @@ export class FirebaseLoginService {
       throw error;
     }
   }
+
+  async resetPassword(email: string) {
+    return await this.afAuth.sendPasswordResetEmail(email)
+  }
+
+  async getCurrentUserEmail(): Promise<string | null> {
+    const user = await this.afAuth.currentUser;
+    return user ? user.email : null;
+  }
+  
 }
