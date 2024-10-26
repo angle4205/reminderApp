@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
 import { UserService } from '../services/my-service.service';
-
+import { FirebaseLoginService } from '../services/firebase-login.service';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.page.html',
@@ -14,7 +14,7 @@ export class SignupPage implements OnInit {
   password: string = ""
   email: string = ""
 
-  constructor(private router: Router, public alert: ToastController, private userService: UserService) { }
+  constructor(private router: Router, public alert: ToastController, private userService: UserService, private firebaseLoginService: FirebaseLoginService) { }
 
   redirectHome() {
     this.router.navigate(['/tabs/home']);
@@ -53,7 +53,7 @@ export class SignupPage implements OnInit {
 
   async passwordLenghtErrorToast() {
     const alert = await this.alert.create({
-      message: 'Password must be at least 12 characters long',
+      message: 'Password must be at least 10 characters long',
       duration: 4000,
       icon: 'sad'
     });
@@ -64,6 +64,15 @@ export class SignupPage implements OnInit {
     const alert = await this.alert.create({
       message: 'Password must have a combination of numbers & letters',
       duration: 4000,
+      icon: 'sad'
+    });
+    await alert.present();
+  }
+
+  async invalidCredentialsToast() {
+    const alert = await this.alert.create({
+      message: 'Invalid Credentials',
+      duration: 3000,
       icon: 'sad'
     });
     await alert.present();
@@ -96,7 +105,7 @@ export class SignupPage implements OnInit {
     } else if (!this.validateEmail(this.email)) {
       console.log("Invalid email");
       this.emailErrorToast();
-    } else if (this.password.length < 12) {
+    } else if (this.password.length < 10) {
       console.log("Password too short");
       this.passwordLenghtErrorToast();
     } else if (!this.validatePassword(this.password)) {
@@ -105,9 +114,18 @@ export class SignupPage implements OnInit {
     } else {
       console.log("User registered successfully");
       this.userService.setUserName(this.username); // Almacenar el nombre de usuario
-      this.redirectHome();
+      this.firebaseLoginService.create_user(this.email, this.password)
+        .then(userCredential => {
+          console.log("User signed up successfully", userCredential);
+        })
+        .catch(error => {
+          console.error("Error during sign up", error);
+          this.invalidCredentialsToast();
+        });
     }
+    this.redirectHome();
   }
+
 
   ngOnInit() {
   }
