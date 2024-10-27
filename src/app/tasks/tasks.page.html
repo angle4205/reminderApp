@@ -2,39 +2,76 @@
   <app-header [title]="'Tasks'"></app-header>
   <ion-content [fullscreen]="true" color="oilblack">
     <div class="slideUp" [@slideUp]="slideState">
-      <ion-card color="oilblack">
-        <ion-card-header>
-          <ion-card-title>Manage your tasks</ion-card-title>
-        </ion-card-header>
-      </ion-card>
-      <ion-grid>
-        <ion-row>
-          <ion-col size="6" class="folder">
-            <ion-icon name="folder-outline" class="folder-icon"></ion-icon>
-            <ion-label>Study</ion-label>
-          </ion-col>
-          <ion-col size="6" class="folder">
-            <ion-icon name="folder-open-outline" class="folder-icon"></ion-icon>
-            <ion-label>Pets</ion-label>
-          </ion-col>
-          <ion-col size="6" class="folder">
-            <ion-icon
-              name="folder-open-outline"
-              class="folder-icon"
-              color="primary"
-            ></ion-icon>
-            <ion-label>Routine</ion-label>
-          </ion-col>
-          <ion-col size="6" class="folder">
-            <ion-icon
-              name="folder-outline"
-              class="folder-icon"
-              color="tangerine"
-            ></ion-icon>
-            <ion-label>Chores</ion-label>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+      <ng-container *ngFor="let task of tasks">
+        <ion-card
+          color="oilblack"
+          *ngIf="task.repeatWeekly && task.weeklyDays && task.weeklyDays.length > 0 && !task.locationBased "
+        >
+          <ion-card-header>
+            <ion-card-title>
+              <ion-icon
+                [name]="task.taskIcon"
+                size="large"
+                class="task-icon"
+              ></ion-icon>
+              {{ task.taskTitle }}
+            </ion-card-title>
+            <ion-card-subtitle>
+              <ion-note>
+                {{ formatTime(task.weeklyTime) }} Every {{
+                filterWeeklyDays(task.weeklyDays).join(', ') }}
+              </ion-note>
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ task.taskDescription }}</p>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card color="oilblack" *ngIf="task.locationBased">
+          <ion-card-header>
+            <ion-card-title>
+              <ion-icon
+                [name]="task.taskIcon"
+                size="large"
+                class="task-icon"
+              ></ion-icon>
+              {{ task.taskTitle }}
+            </ion-card-title>
+            <ion-card-subtitle>
+              <ion-note>
+                <ion-icon slot="start" name="location-outline"></ion-icon>
+                {{ task.locationName || 'Location name' }}
+              </ion-note>
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ task.taskDescription }}</p>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card
+          color="oilblack"
+          *ngIf="task.specificDate && !task.repeatWeekly && !task.locationBased"
+        >
+          <ion-card-header>
+            <ion-card-title>
+              <ion-icon
+                [name]="task.taskIcon"
+                size="large"
+                class="task-icon"
+              ></ion-icon>
+              {{ task.taskTitle }}
+            </ion-card-title>
+            <ion-card-subtitle>
+              <ion-note>{{ task.specificDate | date: 'MMMM d, y' }}</ion-note>
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ task.taskDescription }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ng-container>
     </div>
   </ion-content>
 </ion-app>
