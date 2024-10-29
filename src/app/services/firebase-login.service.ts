@@ -33,17 +33,15 @@ export class FirebaseLoginService {
     }
   }
 
-  async createUser(email: string, password: string) {
+  async createUser(email: string, password: string, username: string) {
     try {
       const userCredential = await this.afAuth.createUserWithEmailAndPassword(email, password);
       const uid = userCredential.user?.uid;
-
-      if (!uid) {
-        throw new Error("Failed to create user UID");
-      }
+      const user = username;
 
       await this.firestore.doc(`users/${uid}`).set({
         email: email,
+        username: user,
         uid: uid
       });
 
@@ -53,6 +51,22 @@ export class FirebaseLoginService {
     }
   }
 
+  // Task to database logic
+  /* async createTask(task: Array<any>) {
+    try {
+      const userCredential = await this.afAuth.currentUser;
+      const uid = userCredential.user?.uid;
+      const userTask = task;
+
+      await this.firestore.doc(`tasks/${uid}`).set({
+
+      });
+
+    } catch (error) {
+      throw error
+    }
+  } */
+
   async resetPassword(email: string) {
     return await this.afAuth.sendPasswordResetEmail(email)
   }
@@ -61,5 +75,5 @@ export class FirebaseLoginService {
     const user = await this.afAuth.currentUser;
     return user ? user.email : null;
   }
-  
+
 }
