@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { UserService } from '../services/my-service.service';
 import { ApiService } from '../services/api.service';
 @Component({
   selector: 'app-home',
@@ -32,11 +31,9 @@ export class HomePage implements OnInit {
   errorMessage: string = '';
   public slideState = 'hidden';
 
-  constructor(private userService: UserService, private apiService: ApiService) { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-    // My Service / User service
-    this.username = this.userService.getUserName();
     // API Service
     this.apiService.getQuoteOfTheDay().subscribe(
       response => {

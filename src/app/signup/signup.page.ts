@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
-import { UserService } from '../services/my-service.service';
 import { FirebaseLoginService } from '../services/firebase-login.service';
 @Component({
   selector: 'app-signup',
@@ -14,7 +13,7 @@ export class SignupPage implements OnInit {
   password: string = ""
   email: string = ""
 
-  constructor(private router: Router, public alert: ToastController, private userService: UserService, private firebaseLoginService: FirebaseLoginService) { }
+  constructor(private router: Router, public alert: ToastController, private firebaseLoginService: FirebaseLoginService) { }
 
   redirectHome() {
     this.router.navigate(['/tabs/home']);
@@ -112,9 +111,7 @@ export class SignupPage implements OnInit {
       console.log("Password does not meet requirements");
       this.passwordContentsErrorToast();
     } else {
-      console.log("User registered successfully");
-      this.userService.setUserName(this.username); // Almacenar el nombre de usuario
-      this.firebaseLoginService.createUser(this.email, this.password)
+      this.firebaseLoginService.createUser(this.email, this.password, this.username)
         .then(userCredential => {
           console.log("User signed up successfully", userCredential);
         })
@@ -122,8 +119,9 @@ export class SignupPage implements OnInit {
           console.error("Error during sign up", error);
           this.invalidCredentialsToast();
         });
+      console.log("User registered successfully");
+      this.redirectHome();
     }
-    this.redirectHome();
   }
 
 

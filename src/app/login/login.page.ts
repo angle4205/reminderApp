@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
-import { UserService } from '../services/my-service.service';
 import { Storage } from '@ionic/storage-angular';
 import { FirebaseLoginService } from '../services/firebase-login.service';
 
@@ -15,7 +14,7 @@ export class LoginPage implements OnInit {
   email: string = ""
   password: string = ""
 
-  constructor(private router: Router, public alert: ToastController, private userService: UserService, private storage: Storage, private firebaseLoginService: FirebaseLoginService
+  constructor(private router: Router, public alert: ToastController, private storage: Storage, private firebaseLoginService: FirebaseLoginService
   ) { }
 
   redirectSignup() {
