@@ -51,22 +51,6 @@ export class FirebaseLoginService {
     }
   }
 
-  // Task to database logic
-  /* async createTask(task: Array<any>) {
-    try {
-      const userCredential = await this.afAuth.currentUser;
-      const uid = userCredential.user?.uid;
-      const userTask = task;
-
-      await this.firestore.doc(`tasks/${uid}`).set({
-
-      });
-
-    } catch (error) {
-      throw error
-    }
-  } */
-
   async resetPassword(email: string) {
     return await this.afAuth.sendPasswordResetEmail(email)
   }

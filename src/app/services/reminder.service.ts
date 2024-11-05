@@ -14,13 +14,13 @@ export class ReminderService {
 
   async addReminder(reminder: any) {
     const userId = await this.authService.getCurrentUserId();
-    if (!userId) throw new Error('Usuario no autenticado');
+    if (!userId) throw new Error('User not authenticated');
     return this.firestore.collection(`users/${userId}/reminders`).add(reminder);
   }
 
   async getReminders(): Promise<Observable<any[]>> {
     const userId = await this.authService.getCurrentUserId();
-    if (!userId) throw new Error('Usuario no autenticado');
+    if (!userId) throw new Error('User not authenticated');
     return this.firestore.collection(`users/${userId}/reminders`).valueChanges() as Observable<any[]>;
   }
 }
