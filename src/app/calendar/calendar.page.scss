@@ -17,26 +17,27 @@ ion-fab-button {
   --background: #f08000;
   --background-activated: #f08000;
   --background-hover: #f08000;
-  --box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+  --box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3),
+    0px 1px 3px 1px rgba(0, 0, 0, 0.15);
   --color: black;
 }
-//si
+
 ion-card {
-  cursor: pointer;
   transition: all 0.3s ease-in-out;
-}
-
-ion-card-header {
-  background-color: white;
-}
-
-ion-card-content {
-  background-color: white;
-  padding: 10px;
 }
 
 .datetime-container {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+ion-card-title {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+.task-icon {
+  margin-right: 5px;
 }

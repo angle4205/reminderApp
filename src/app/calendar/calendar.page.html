@@ -6,22 +6,49 @@
         <ion-datetime presentation="date"></ion-datetime>
       </div>
 
-      <p>Reminders</p>
+      <ion-card color="oilblack">
+        <ion-card-header>
+          <ion-card-title> Reminders</ion-card-title>
+        </ion-card-header>
+      </ion-card>
 
-      <ion-card *ngFor="let reminder of reminders" [@slideUp]="slideState" (click)="toggleAccordion()">
-        <ion-card-header> 
-          <ion-item lines="none">
-            <ion-icon [name]="reminder.taskIcon" size="large" slot="start"></ion-icon>
-            <ion-card-content> {{ reminder.taskTitle }} </ion-card-content>
-            <ion-card-content> {{ reminder.specificDate }} </ion-card-content>
-          </ion-item>
+      <ion-card color="oilblack" *ngFor="let reminder of reminders">
+        <ion-card-header>
+          <ion-card-title>
+            <ion-icon
+              [name]="reminder.taskIcon"
+              size="large"
+              class="task-icon"
+            ></ion-icon>
+            {{ reminder.taskTitle }}
+          </ion-card-title>
+          <ion-card-subtitle
+            *ngIf="reminder.repeatWeekly && reminder.weeklyDays.length > 0 && !reminder.locationBased"
+          >
+            <ion-note>
+              {{ formatTime(reminder.weeklyTime) }} Every {{
+              filterWeeklyDays(reminder.weeklyDays).join(', ') }}
+            </ion-note>
+          </ion-card-subtitle>
+
+          <ion-card-subtitle *ngIf="reminder.locationBased">
+            <ion-note>
+              <ion-icon slot="start" name="location-outline"></ion-icon>
+              {{ reminder.locationName || 'Location name' }}
+            </ion-note>
+          </ion-card-subtitle>
+
+          <ion-card-subtitle
+            *ngIf="reminder.specificDate && !reminder.repeatWeekly && !reminder.locationBased"
+          >
+            <ion-note>{{ reminder.specificDate | date: 'MMMM d, y' }}</ion-note>
+          </ion-card-subtitle>
         </ion-card-header>
 
-        <ion-card-content *ngIf="isOpen">
+        <ion-card-content>
           <p>{{ reminder.taskDescription }}</p>
         </ion-card-content>
       </ion-card>
-
     </div>
     <ion-fab slot="fixed" vertical="bottom" horizontal="end">
       <ion-fab-button>
