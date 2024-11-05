@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
+import { AuthGuard } from '../auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -13,30 +14,25 @@ const routes: Routes = [
       },
       {
         path: 'reminders',
-        loadChildren: () => import('../reminders/reminders.module').then( m => m.RemindersPageModule)
+        loadChildren: () => import('../reminders/reminders.module').then(m => m.RemindersPageModule)
       },
       {
         path: 'tasks',
-        loadChildren: () => import('../tasks/tasks.module').then( m => m.TasksPageModule)
+        loadChildren: () => import('../tasks/tasks.module').then(m => m.TasksPageModule)
       },
       {
         path: 'calendar',
-        loadChildren: () => import('../calendar/calendar.module').then( m => m.CalendarPageModule)
+        loadChildren: () => import('../calendar/calendar.module').then(m => m.CalendarPageModule)
       },
       {
         path: 'animations',
-        loadChildren: () => import('../animations/animations.module').then( m => m.AnimationsPageModule)
+        loadChildren: () => import('../animations/animations.module').then(m => m.AnimationsPageModule)
       },
     ]
-  },
-  {
-    path: '',
-    redirectTo: '/tabs/home',
-    pathMatch: 'full'
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }

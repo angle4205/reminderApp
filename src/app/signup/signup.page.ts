@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
 import { FirebaseLoginService } from '../services/firebase-login.service';
+import { Storage } from '@ionic/storage-angular';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.page.html',
@@ -13,7 +14,7 @@ export class SignupPage implements OnInit {
   password: string = ""
   email: string = ""
 
-  constructor(private router: Router, public alert: ToastController, private firebaseLoginService: FirebaseLoginService) { }
+  constructor(private router: Router, public alert: ToastController, private firebaseLoginService: FirebaseLoginService, private storage: Storage) { }
 
   redirectHome() {
     this.router.navigate(['/tabs/home']);
@@ -113,6 +114,7 @@ export class SignupPage implements OnInit {
     } else {
       this.firebaseLoginService.createUser(this.email, this.password, this.username)
         .then(userCredential => {
+          this.storage.set("SessionID", true)
           console.log("User signed up successfully", userCredential);
         })
         .catch(error => {

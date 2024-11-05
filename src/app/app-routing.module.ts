@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -9,23 +10,26 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
   },
   {
     path: 'signup',
-    loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
+    loadChildren: () => import('./signup/signup.module').then(m => m.SignupPageModule)
   },
   {
     path: 'tabs',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'new-task',
-    loadChildren: () => import('./new-task/new-task.module').then( m => m.NewTaskPageModule)
+    loadChildren: () => import('./new-task/new-task.module').then(m => m.NewTaskPageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'configuration',
-    loadChildren: () => import('./configuration/configuration.module').then( m => m.ConfigurationPageModule)
+    loadChildren: () => import('./configuration/configuration.module').then(m => m.ConfigurationPageModule),
+    canActivate:[AuthGuard]
   }
 
 
@@ -37,4 +41,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

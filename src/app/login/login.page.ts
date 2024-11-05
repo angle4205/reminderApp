@@ -17,6 +17,10 @@ export class LoginPage implements OnInit {
   constructor(private router: Router, public alert: ToastController, private storage: Storage, private firebaseLoginService: FirebaseLoginService
   ) { }
 
+  async ngOnInit() {
+    const storage = await this.storage.create();
+  }
+
   redirectSignup() {
     this.router.navigate(['/signup']);
   }
@@ -71,6 +75,7 @@ export class LoginPage implements OnInit {
     else {
       this.firebaseLoginService.logIn(this.email, this.password)
         .then(userCredential => {
+          this.storage.set("SessionID", true)
           console.log("User logged in successfully", userCredential);
           this.redirectHome();
         })
@@ -79,9 +84,6 @@ export class LoginPage implements OnInit {
           this.invalidCredentialsToast();
         });
     }
-  }
-
-  ngOnInit() {
   }
 
 }
