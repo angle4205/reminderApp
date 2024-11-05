@@ -38,15 +38,28 @@ export class CalendarPage implements OnInit {
       this.slideState = 'visible';
     }, 500);
   }
-  
+
   //Reminder Logic
   reminders: any[] = [];
 
-  constructor(private reminderService: ReminderService) {}
+  constructor(private reminderService: ReminderService) { }
 
   async loadReminders() {
     (await this.reminderService.getReminders()).subscribe(data => {
       this.reminders = data;
     });
+  }
+
+  filterWeeklyDays(days: string[]): string[] {
+    return days ? days.filter(day => day !== 'location') : [];
+  }
+
+  formatTime(timeString: string): string {
+    if (!timeString || timeString === "NaN:NaN") return "";
+    const [hours, minutes] = timeString.split(':').map(Number);
+    const isPM = hours >= 12;
+    const adjustedHours = hours % 12 || 12;
+    const period = isPM ? 'PM' : 'AM';
+    return `${adjustedHours}:${minutes.toString().padStart(2, '0')} ${period}`;
   }
 }
