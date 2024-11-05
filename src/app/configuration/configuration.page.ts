@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseLoginService } from '../services/firebase-login.service';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-configuration',
@@ -8,13 +9,14 @@ import { FirebaseLoginService } from '../services/firebase-login.service';
 })
 export class ConfigurationPage implements OnInit {
   email: string | null = null;
-  constructor(private firebaseLoginService: FirebaseLoginService) { }
+  constructor(private firebaseLoginService: FirebaseLoginService, private storage: Storage) { }
 
   async ngOnInit() {
     this.email = await this.firebaseLoginService.getCurrentUserEmail();
   }
 
   logOut() {
+    this.storage.set("SessionID", false)
     this.firebaseLoginService.logOut()
   }
 
