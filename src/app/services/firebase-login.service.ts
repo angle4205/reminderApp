@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore } from '@angular/fire/compat/firestore'
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
@@ -75,5 +75,8 @@ export class FirebaseLoginService {
     const user = await this.afAuth.currentUser;
     return user ? user.email : null;
   }
-
+  async getCurrentUserId(): Promise<string | null> {
+    const user = await this.afAuth.currentUser;
+    return user ? user.uid : null;
+  }
 }

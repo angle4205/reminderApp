@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { ReminderService } from '../services/reminder.service';
+
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.page.html',
@@ -31,9 +33,20 @@ export class CalendarPage implements OnInit {
   public slideState = 'hidden';
 
   ngOnInit() {
+    this.loadReminders();
     setTimeout(() => {
       this.slideState = 'visible';
     }, 500);
   }
+  
+  //Reminder Logic
+  reminders: any[] = [];
 
+  constructor(private reminderService: ReminderService) {}
+
+  async loadReminders() {
+    (await this.reminderService.getReminders()).subscribe(data => {
+      this.reminders = data;
+    });
+  }
 }

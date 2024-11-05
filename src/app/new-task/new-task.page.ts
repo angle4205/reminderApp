@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Storage } from '@ionic/storage-angular'
+import { ReminderService } from '../services/reminder.service';
+import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-new-task',
@@ -50,7 +52,11 @@ export class NewTaskPage implements OnInit {
     'football'
   ];
 
-  constructor(private storage: Storage) { }
+  constructor(
+    private reminderService: ReminderService, 
+    private storage: Storage, 
+    private router: Router
+  ) {}
 
   async ngOnInit() {
     await this.storage.create();
@@ -94,7 +100,12 @@ export class NewTaskPage implements OnInit {
       taskColor: this.selectedColor,
       taskIcon: this.selectedIcon
     };
-    await this.saveToStorage(task);
+    try {
+      await this.reminderService.addReminder(task);
+      console.log('Recordatorio añadido con éxito');
+    } catch (error) {
+      console.error('Error al añadir recordatorio:', error);
+    }
   }
 
 }

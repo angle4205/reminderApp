@@ -8,22 +8,20 @@
 
       <p>Reminders</p>
 
-      <ion-card [@slideUp]="slideState" (click)="toggleAccordion()">
-        <ion-card-header>
+      <ion-card *ngFor="let reminder of reminders" [@slideUp]="slideState" (click)="toggleAccordion()">
+        <ion-card-header> 
           <ion-item lines="none">
-            <ion-icon name="bed-outline" size="large" slot="start"></ion-icon>
-            <ion-card-content> Hacer la cama </ion-card-content>
-            <ion-card-content> 06:20am </ion-card-content>
+            <ion-icon [name]="reminder.taskIcon" size="large" slot="start"></ion-icon>
+            <ion-card-content> {{ reminder.taskTitle }} </ion-card-content>
+            <ion-card-content> {{ reminder.specificDate }} </ion-card-content>
           </ion-item>
         </ion-card-header>
 
         <ion-card-content *ngIf="isOpen">
-          <p>
-            Esta es la información adicional que se despliega cuando se presiona
-            la card.
-          </p>
+          <p>{{ reminder.taskDescription }}</p>
         </ion-card-content>
       </ion-card>
+
     </div>
     <ion-fab slot="fixed" vertical="bottom" horizontal="end">
       <ion-fab-button>
