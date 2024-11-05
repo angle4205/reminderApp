@@ -102,9 +102,9 @@ export class NewTaskPage implements OnInit {
     };
     try {
       await this.reminderService.addReminder(task);
-      console.log('Recordatorio añadido con éxito');
+      console.log('Reminder added');
     } catch (error) {
-      console.error('Error al añadir recordatorio:', error);
+      console.error('Error adding reminder:', error);
     }
   }
 
