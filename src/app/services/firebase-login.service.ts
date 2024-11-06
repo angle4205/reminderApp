@@ -12,7 +12,9 @@ import { firstValueFrom, Observable } from 'rxjs';
 })
 export class FirebaseLoginService {
 
-  constructor(private afAuth: AngularFireAuth, private router: Router, private firestore: AngularFirestore) { }
+  constructor(private afAuth: AngularFireAuth, private router: Router, private firestore: AngularFirestore) {
+    this.afAuth.setPersistence('local');
+  }
 
   async logIn(email: string, password: string) {
     try {
@@ -60,6 +62,7 @@ export class FirebaseLoginService {
     const user = await this.afAuth.currentUser;
     return user ? user.email : null;
   }
+  
   async getCurrentUserId(): Promise<string | null> {
     const user = await this.afAuth.currentUser;
     return user ? user.uid : null;
