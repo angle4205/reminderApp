@@ -1,0 +1,48 @@
+<app-header [title]="'New task'"></app-header>
+
+<ion-content [fullscreen]="true" color="oilblack">
+  <ion-card color="oilblack">
+    <ion-card-header>
+      <ion-card-title> Create new Location</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-input
+        [(ngModel)]="locationName"
+        label="Title"
+        labelPlacement="floating"
+      ></ion-input>
+      <p>Latitud: {{ locationLat }}</p>
+      <p>Longitud: {{ locationLong }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="full" (click)="updateLocation()">
+    Actualizar Ubicación
+  </ion-button>
+
+  <ion-card color="oilblack">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button
+            color="danger"
+            class="doneButtons"
+            [routerLink]="['/tabs/calendar']"
+          >
+            Cancel
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button
+            color="offwhite"
+            class="doneButtons"
+            [routerLink]="['/tabs/calendar']"
+            (click)="saveLocation()"
+          >
+            Done
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>

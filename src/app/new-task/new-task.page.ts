@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ReminderService } from '../services/reminder.service';
+import { LocationService } from '../services/location.service';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
 
@@ -52,14 +53,23 @@ export class NewTaskPage implements OnInit {
     'football'
   ];
 
+  location: any[] = [];
+
   constructor(
-    private reminderService: ReminderService, 
+    private reminderService: ReminderService,
+    private locationService: LocationService,
     private storage: Storage, 
     private router: Router
   ) {}
 
   async ngOnInit() {
     await this.storage.create();
+  }
+
+  async loadReminders() {
+    (await this.locationService.getLocation()).subscribe(data => {
+      this.location = data;
+    });
   }
 
   repeatSelect() {
