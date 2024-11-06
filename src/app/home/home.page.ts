@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { ApiService } from '../services/api.service';
+import { FirebaseLoginService } from '../services/firebase-login.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -31,7 +33,7 @@ export class HomePage implements OnInit {
   errorMessage: string = '';
   public slideState = 'hidden';
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private firebaseService: FirebaseLoginService) { }
 
   ngOnInit() {
     // API Service
@@ -46,15 +48,20 @@ export class HomePage implements OnInit {
         }
       },
       error => {
-        console.error('Error fetching quote of the day', error);
         this.errorMessage = 'Error fetching quote of the day';
-        console.log('unable to fetch quotes in local server?, use proxy instead: ionic serve --proxy-config proxy.conf.json')
+        console.error('Error fetching quote of the day', error);
+        console.error('unable to fetch quotes in local server?, use proxy instead: ionic serve --proxy-config proxy.conf.json')
       }
     );
     // Animation slide
     setTimeout(() => {
       this.slideState = 'visible';
     }, 500);
+    this.firebaseService.getUsername().then(username$ => {
+      username$.subscribe(name => {
+        this.username = name;
+      });
+    });
   }
 
 }

@@ -4,7 +4,8 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
-import { firstValueFrom } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { firstValueFrom, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -62,5 +63,13 @@ export class FirebaseLoginService {
   async getCurrentUserId(): Promise<string | null> {
     const user = await this.afAuth.currentUser;
     return user ? user.uid : null;
+  }
+
+  async getUsername(): Promise<Observable<string>> {
+    const uid = await this.getCurrentUserId();
+    if (!uid) throw new Error('User is not authenticated');
+    return this.firestore.doc(`users/${uid}`).valueChanges().pipe(
+      map((userData: any) => userData?.username || 'No username found')
+    ) as Observable<string>;
   }
 }
