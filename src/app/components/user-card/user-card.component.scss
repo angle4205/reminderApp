@@ -1,3 +1,12 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .cardProfilePicture {
   width: 70px;
   border-radius: 50%;
@@ -7,4 +16,5 @@
 .cardUsername {
   display: flex;
   align-items: center;
+  animation: fadeIn 3.3s ease-in;
 }
