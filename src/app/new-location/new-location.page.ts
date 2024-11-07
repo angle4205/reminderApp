@@ -25,6 +25,7 @@ export class NewLocationPage implements OnInit {
     await this.storage.create();
   }
 
+/*
   async loadLocation() {
     try {
       const coordinates = await Geolocation.getCurrentPosition();
@@ -34,6 +35,27 @@ export class NewLocationPage implements OnInit {
       console.error('Error getting location:', error);
     }
   }
+*/
+
+async loadLocation() {
+  try {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          this.locationLat = position.coords.latitude;
+          this.locationLong = position.coords.longitude;
+        },
+        (error) => {
+          console.error(`Error obteniendo la ubicación (Código ${error.code}): ${error.message}`);
+        }
+      );
+    } else {
+      console.error('Geolocalización no es soportada en este navegador');
+    }
+  } catch (error) {
+    console.error('Error al obtener la ubicación:', error);
+  }
+}
 
   async updateLocation() {
     await this.loadLocation();

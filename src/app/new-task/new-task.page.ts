@@ -53,7 +53,8 @@ export class NewTaskPage implements OnInit {
     'football'
   ];
 
-  location: any[] = [];
+  locations: any[] = [];
+  locationSelected: string = '';
 
   constructor(
     private reminderService: ReminderService,
@@ -64,11 +65,17 @@ export class NewTaskPage implements OnInit {
 
   async ngOnInit() {
     await this.storage.create();
+    this.loadLocations();
   }
 
-  async loadReminders() {
+  selectLocation(locationName: string) {
+    this.locationSelected = locationName;
+    console.log("Location seleccionada:", this.locationSelected);
+  }
+
+  async loadLocations() {
     (await this.locationService.getLocation()).subscribe(data => {
-      this.location = data;
+      this.locations = data;
     });
   }
 
@@ -108,7 +115,8 @@ export class NewTaskPage implements OnInit {
       locationBased: this.locationBased,
       locationRange: this.locationRange,
       taskColor: this.selectedColor,
-      taskIcon: this.selectedIcon
+      taskIcon: this.selectedIcon,
+      location: this.locationSelected,
     };
     try {
       await this.reminderService.addReminder(task);

@@ -56,9 +56,11 @@
     <ion-accordion color="oilblack" *ngIf="locationBased">
       <ion-item slot="header" color="oilblack"> Select ubication </ion-item>
       <div class="ion-padding" id="dateAccordion" slot="content">
-        <ion-item color="oilblack">
-          <ion-label> *Place map* </ion-label>
+
+        <ion-item color="oilblack" *ngFor="let location of locations" (click)="selectLocation(location.locationName)">
+          <ion-label> {{ location.locationName }} </ion-label>
         </ion-item>
+
         <ion-item color="oilblack">
           <ion-select [(ngModel)]="locationRange" placeholder="Select Range">
             <div slot="label">Range (meters)</div>
