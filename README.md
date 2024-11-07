@@ -1,1 +1,1 @@
-chrome-extension://hpgejdfcplnncghaaeoegpifpdiiedba/BasketStars106index.html
+https://chromewebstore.google.com/detail/basketball-stars-unblocke/hpgejdfcplnncghaaeoegpifpdiiedba
