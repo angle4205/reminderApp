@@ -30,7 +30,8 @@ const routes: Routes = [
     path: 'configuration',
     loadChildren: () => import('./configuration/configuration.module').then(m => m.ConfigurationPageModule),
     canActivate:[AuthGuard]
-  },  {
+  },
+  {
     path: 'new-location',
     loadChildren: () => import('./new-location/new-location.module').then( m => m.NewLocationPageModule)
   }

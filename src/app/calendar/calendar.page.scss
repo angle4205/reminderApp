@@ -41,3 +41,16 @@ ion-card-title {
 .task-icon {
   margin-right: 5px;
 }
+
+.task-button {
+  --border-radius: 50%;
+  border-radius: 50%;
+  height: 55px;
+  width: 55px;
+  margin: 7px;
+}
+
+.task-buttons {
+  display: flex;
+  justify-content: end;
+}

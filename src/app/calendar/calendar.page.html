@@ -48,6 +48,41 @@
         <ion-card-content>
           <p>{{ reminder.taskDescription }}</p>
         </ion-card-content>
+        <div class="task-buttons">
+          <ion-button color="offwhite" class="task-button">
+            <ion-icon name="pencil" size="large"></ion-icon>
+          </ion-button>
+          <ion-button color="danger" class="task-button">
+            <ion-icon name="trash" size="large"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-card>
+
+      <ion-card color="oilblack">
+        <ion-card-header>
+          <ion-card-title>
+            <ion-icon name="happy" size="large" class="task-icon"></ion-icon>
+            Title
+          </ion-card-title>
+          <ion-note>May 20, 2020</ion-note>
+        </ion-card-header>
+
+        <ion-card-content>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia
+            voluptatibus eos ducimus eaque reiciendis voluptatem nisi deleniti
+            nihil sed blanditiis quibusdam reprehenderit unde exercitationem,
+            cupiditate praesentium facere adipisci. Voluptates, esse.
+          </p>
+        </ion-card-content>
+        <div class="task-buttons">
+          <ion-button color="offwhite" class="task-button">
+            <ion-icon name="pencil" size="large"></ion-icon>
+          </ion-button>
+          <ion-button color="danger" class="task-button">
+            <ion-icon name="trash" size="large"></ion-icon>
+          </ion-button>
+        </div>
       </ion-card>
     </div>
     <ion-fab slot="fixed" vertical="bottom" horizontal="end">
@@ -56,9 +91,9 @@
       </ion-fab-button>
       <ion-fab-list side="top">
         <ion-fab-button>
-          <ion-icon 
-            name="map-outline" 
-            size="large" 
+          <ion-icon
+            name="map-outline"
+            size="large"
             [routerLink]="['/new-location']"
           ></ion-icon>
         </ion-fab-button>
