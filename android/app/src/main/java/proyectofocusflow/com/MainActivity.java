@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package proyectofocusflow.com;
 
 import com.getcapacitor.BridgeActivity;
 
